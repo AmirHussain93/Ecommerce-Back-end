@@ -36,9 +36,10 @@ public class ProductDAO
 	public Product getProduct(int prodid)
 	{
 		Session session=sessionFactory.openSession();
-		Product category=(Product)session.get(Product.class,prodid);
+		Product product=(Product)session.get(Product.class,prodid);
+		System.out.println(product.getProdname());
 		session.close();
-		return category;
+		return product;
 	}
 	
 	@Transactional

@@ -40,7 +40,7 @@ public class SupplierDAO
 	}
 	
 	@Transactional
-	public void deleteCategory(Supplier supplier)
+	public void deleteSupplier(Supplier supplier)
 	{
 		sessionFactory.getCurrentSession().delete(supplier);
 	}

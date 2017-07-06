@@ -14,7 +14,7 @@ public class Supplier implements Serializable
 	@Id
 	@GeneratedValue
 	int suppid;
-	String suppname,Address;
+	String suppname,address;
 	public int getSuppid() {
 		return suppid;
 	}
@@ -28,10 +28,10 @@ public class Supplier implements Serializable
 		this.suppname = suppname;
 	}
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
 
 }

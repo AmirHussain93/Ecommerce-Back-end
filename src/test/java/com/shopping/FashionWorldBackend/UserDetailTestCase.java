@@ -25,7 +25,7 @@ public class UserDetailTestCase
 		userdetail.setUsername("Amirh");
 		userdetail.setPassword("amir123");
 		userdetail.setCustName("Amir Hussain");
-		userdetail.setRole("user");
+		userdetail.setRole("USER_ROLE");
 		userdetail.setEnabled(true);
 		userdetail.setEmail("amirhuss@gmail");
 		userdetail.setAddress("Bhopal");

@@ -1,14 +1,17 @@
 package com.shopping.FashionWorldBackend.model;
 
+
 import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="Product")
@@ -25,6 +28,15 @@ public class Product implements Serializable
 	int catid, suppid,quantity,price;
 	String ProdDesc;
 	
+	@Transient
+	MultipartFile pimage;
+	
+	public MultipartFile getPimage() {
+		return pimage;
+	}
+	public void setPimage(MultipartFile pimage) {
+		this.pimage = pimage;
+	}
 	public int getProdid() {
 		return prodid;
 	}

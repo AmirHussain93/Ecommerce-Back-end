@@ -24,25 +24,25 @@ public class UserDetailDAO
 	}
 	
 	@Transactional
-	public void insertUpdateUserDetail(UserDetail supplier)
+	public void insertUpdateUserDetail(UserDetail userdetail)
 	{
 		Session session=sessionFactory.getCurrentSession();
-		session.saveOrUpdate(supplier);
+		session.saveOrUpdate(userdetail);
 	}
 	
 	
 	public UserDetail getUserDetail(String username)
 	{
 		Session session=sessionFactory.openSession();
-		UserDetail category=(UserDetail)session.get(UserDetail.class,username);
+		UserDetail userdetail=(UserDetail)session.get(UserDetail.class,username);
 		session.close();
-		return category;
+		return userdetail;
 	}
 	
 	@Transactional
-	public void deleteCategory(UserDetail supplier)
+	public void deleteUserDetail(UserDetail userdetail)
 	{
-		sessionFactory.getCurrentSession().delete(supplier);
+		sessionFactory.getCurrentSession().delete(userdetail);
 	}
 	
 	public List<UserDetail> getUserDetailDetails()
