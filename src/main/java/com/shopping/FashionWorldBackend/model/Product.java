@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -25,7 +28,23 @@ public class Product implements Serializable
 	@Size(min = 4, max = 15, message = "Your product name must be within the specified size.")
 	String prodname;
 	
-	int catid, suppid,quantity,price;
+	@NotNull
+	int catid;
+	
+	@NotNull
+	int suppid;
+	
+	@NotNull
+	@Min(value = 1)
+	@Max(value = 50)
+	int quantity;
+	
+	@NotNull
+	@Min(value = 1)
+	int price;
+	
+	@NotEmpty
+	@Size(min = 4, max = 50 , message = "Product description must be within the specified size")
 	String ProdDesc;
 	
 	@Transient

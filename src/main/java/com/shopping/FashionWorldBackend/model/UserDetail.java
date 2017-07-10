@@ -5,16 +5,20 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table
 public class UserDetail implements Serializable
 {
 	@Id
+	
 	String username;
+	
+	
 	String password,CustName,Role,Email,Address,Mobile;
 	boolean Enabled;
-
+     
 	public String getUsername() {
 		return username;
 	}
