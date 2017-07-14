@@ -11,16 +11,16 @@ public class Cart
 {
 	@Id
 	@GeneratedValue
-	int citemid;
+	Long citemid;
 	
 	int cartid,prodid,quantity,price;
 	String username,prodname,status;
 	
-	public int getCitemid() {
+	public Long getCitemid() {
 		return citemid;
 	}
 
-	public void setCitemid(int citemid) {
+	public void setCitemid(Long citemid) {
 		this.citemid = citemid;
 	}
 

@@ -2,7 +2,7 @@ package com.shopping.FashionWorldBackend.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
+
 
 
 import org.hibernate.Session;
@@ -10,6 +10,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import org.springframework.transaction.annotation.Transactional;
 
 import com.shopping.FashionWorldBackend.model.Cart;
 
@@ -33,8 +35,8 @@ public class CartDAO
 	public List<Cart> getCartItems(String username)
 	{
 		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("from Cart where username:username and status='N'");
-		query.setParameter("username",username);
+		Query query=session.createQuery("from Cart where username='"+username+"' and status='N'");
+		//query.setParameter("username",username);
 		
 		@SuppressWarnings("unchecked")
 		List<Cart> list=query.list();
@@ -44,10 +46,15 @@ public class CartDAO
 	@Transactional
 	public void deleteCartItem(Cart cart)
 	{
-		sessionFactory.getCurrentSession().delete(cart);
+		Session session1=sessionFactory.getCurrentSession();
+		
+        session1.delete(cart);
+        session1.flush();
+		
+		//sessionFactory.getCurrentSession().delete(cart);
 	}
 	
-	public Cart getCartItem(int citemid)
+	public Cart getCartItem(Long citemid)
 	{
 		Session session=sessionFactory.openSession();
 		
