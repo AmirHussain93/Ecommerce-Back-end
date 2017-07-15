@@ -18,7 +18,7 @@ public class CartTestCase
 		CartDAO cartDAO=(CartDAO)context.getBean("cartDAO");
 		
 		Cart cart=new Cart();
-		cart.setCartid(1001);
+		cart.setCartid("1001");
 		cart.setProdid(3);
 		cart.setProdname("Samsung Galaxy7");
 		cart.setPrice(12000);

@@ -2,6 +2,7 @@ package com.shopping.FashionWorldBackend.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,7 +14,10 @@ public class Cart
 	@GeneratedValue
 	Long citemid;
 	
-	int cartid,prodid,quantity,price;
+	
+	String cartid;
+	
+	int prodid,quantity,price;
 	String username,prodname,status;
 	
 	public Long getCitemid() {
@@ -24,11 +28,11 @@ public class Cart
 		this.citemid = citemid;
 	}
 
-	public int getCartid() {
+	public String getCartid() {
 		return cartid;
 	}
 
-	public void setCartid(int cartid) {
+	public void setCartid(String cartid) {
 		this.cartid = cartid;
 	}
 

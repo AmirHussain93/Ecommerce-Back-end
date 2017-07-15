@@ -16,13 +16,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.shopping.FashionWorldBackend.dao.CartDAO;
 import com.shopping.FashionWorldBackend.dao.CategoryDAO;
-import com.shopping.FashionWorldBackend.dao.OrderDetailsDAO;
+
+import com.shopping.FashionWorldBackend.dao.PaymentDAO;
 import com.shopping.FashionWorldBackend.dao.ProductDAO;
 import com.shopping.FashionWorldBackend.dao.SupplierDAO;
 import com.shopping.FashionWorldBackend.dao.UserDetailDAO;
 import com.shopping.FashionWorldBackend.model.Cart;
 import com.shopping.FashionWorldBackend.model.Category;
-import com.shopping.FashionWorldBackend.model.OrderDetails;
+
+import com.shopping.FashionWorldBackend.model.Payment;
 import com.shopping.FashionWorldBackend.model.Product;
 import com.shopping.FashionWorldBackend.model.Supplier;
 import com.shopping.FashionWorldBackend.model.UserDetail;
@@ -67,7 +69,9 @@ public class DBConfig
      	sessionBuilder.addAnnotatedClass(Supplier.class);
      	sessionBuilder.addAnnotatedClass(UserDetail.class);
      	sessionBuilder.addAnnotatedClass(Cart.class);
-    	sessionBuilder.addAnnotatedClass(OrderDetails.class);
+    	
+    	sessionBuilder.addAnnotatedClass(Payment.class);
+
 
      	System.out.println("Session factory object creation");
      	SessionFactory sessionFactory = sessionBuilder.buildSessionFactory();
@@ -126,12 +130,14 @@ public class DBConfig
  		return new  CartDAO(sessionFactory);
      }
      
+   
+     
      @Autowired
-     @Bean(name="orderDetailsDAO")
-     public OrderDetailsDAO getOrderDetailsDAO(SessionFactory sessionFactory)
+     @Bean(name="paymentDAO")
+     public PaymentDAO getPaymentDAO(SessionFactory sessionFactory)
      {
-    	 System.out.println("-----OrderDetailsDAO Object Creation------");
-    	 return new OrderDetailsDAO(sessionFactory);
+    	 System.out.println("-----PaymentDAO Object Creation------");
+    	 return new PaymentDAO(sessionFactory);
     	 	
      }
      
